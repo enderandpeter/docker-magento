@@ -5,7 +5,7 @@
 Copy the `.env.example` to `.env` and edit it for the environment:
 
 * `COMPOSE_PROJECT_NAME` - The project name. This value will be appended to all of the container and volume names for the deployment.
-* `COMPOSE_FILE` - A colon-delimited list of `yml` files to be used for the deployment. For example, if this value were set to `file1.yml:file2.yml`, it will be like invoking `docker-composer -f file1.yml -f file2.yml`.
+* `COMPOSE_FILE` - A colon-delimited list of `yml` files to be used for the deployment. For example, if this value were set to `file1.yml:file2.yml`, it will be like invoking `docker-compose -f file1.yml -f file2.yml`.
 * `IMAGE_NS` - The prefix for the image names
 * `HTTPD_PORT_80` - The host port for the httpd container's port 80
 * `HTTPD_PORT_443` - The host port for the httpd container's port 443
