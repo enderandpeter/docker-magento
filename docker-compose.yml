@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  webserver:
+    build: httpd
+    image: ${IMAGE_NS}/magento
+    restart: always
+    container_name: ${COMPOSE_PROJECT_NAME}_webserver
+    ports:
+      - "${HTTPD_PORT_80}:80"
+      - "${HTTPD_PORT_443}:443"
+    environment:
+      - SERVER_NAME=${SERVER_NAME}
+      - PHP_SERVER=${COMPOSE_PROJECT_NAME}_php
+      - PHP_PORT=${PHP_PORT}
+    volumes:
+      - ${MAGENTO_VOLUME}:/var/www/html
+    networks:
+      - network
+  php:
+    build: php
+    image: ${IMAGE_NS}/magento
+    restart: always
+    container_name: ${COMPOSE_PROJECT_NAME}_php
+    volumes:
+      - ${MAGENTO_VOLUME}:/var/www/html
+    networks:
+      - network
+    environment:
+      - WORKDIR=${WORKDIR}
+      - DEPLOY_USER=${DEPLOY_USER}
+      - DEPLOY_USER_HOME=${DEPLOY_USER_HOME}
+  db:
+    build: mysql
+    image: ${IMAGE_NS}/magento-db
+    restart: always
+    container_name: ${COMPOSE_PROJECT_NAME}_db
+    networks:
+      - network
+    ports:
+      - "${DB_PORT}:3309"
+    volumes:
+      - magento-db:/var/lib/mysql
+volumes:
+  magento-db:
+networks:
+  network:

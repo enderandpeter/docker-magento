@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  webserver:
+    extra_hosts:
+      - "magento.local:127.0.0.1"
+  php:
+    extra_hosts:
+      - "magento.local:127.0.0.1"
