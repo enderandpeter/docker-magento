@@ -49,7 +49,7 @@ Once everything is ready simply run
 
 Then go into the php container and run:
 
-    set-permissions.sh
+    start.sh
     bin/magento setup:install \
     --base-url=https://magento.local \
     --db-host=magento_db:3309 \
@@ -59,7 +59,7 @@ Then go into the php container and run:
     --backend-frontname=admin \
     --admin-firstname=Spencer \
     --admin-lastname=Williams \
-    --admin-email=enderandpeter@yahoo.com \
+    --admin-email=admin@example.com \
     --admin-user=admin \
     --admin-password=admin123 \
     --language=en_US \
@@ -68,3 +68,7 @@ Then go into the php container and run:
     --use-rewrites=1
 
 Replace the above arguments with values that are appropriate for the environment.
+
+If a change is made to a a build context, you can rebuild the image with:
+
+    docker-compose build [service_name]

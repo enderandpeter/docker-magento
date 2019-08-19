@@ -4,10 +4,13 @@ if set-permissions.sh; then
   echo "File permissions set!"
 else
   echo "File permissions NOT set!"
+fi
 
-if bin/magento cron:install; then
+echo "Starting cron jobs..."
+if "$WORKDIR"/bin/magento cron:install; then
   echo "Cron jobs started!"
 else
   echo "Cron jobs NOT started!"
+fi
 
-php-fpm
+#docker-php-entrypoint

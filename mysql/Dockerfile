@@ -9,6 +9,6 @@ ENV MYSQL_ROOT_PASSWORD=root \
 RUN apt-get update && apt-get install --yes \
 vim
 
-COPY conf.d/* /etc/mysql/conf.d
+COPY conf.d/* /etc/mysql/conf.d/
 
 VOLUME ["/var/lib/mysql"]
