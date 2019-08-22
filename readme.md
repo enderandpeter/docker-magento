@@ -52,6 +52,7 @@ Then go into the php container and run:
     chmod +x bin/magento
     bin/magento setup:install \
     --base-url=https://magento.local \
+    --base-url-secure=https://magento.local \    
     --db-host=magento_db:3309 \
     --db-name=magento \
     --db-user=magento \
@@ -65,7 +66,9 @@ Then go into the php container and run:
     --language=en_US \
     --currency=USD \
     --timezone=America/Chicago \
-    --use-rewrites=1
+    --use-rewrites=1 \
+    --use-secure=1 \
+    --use-secure-admin=1
     start.sh
 
 Replace the above arguments with values that are appropriate for the environment.
