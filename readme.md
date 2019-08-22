@@ -36,10 +36,10 @@ The database container. You can create a `mysql/conf.d/my.cnf` file to change se
 
 ```
 [client]
-port = 3009
+port = 3309
 
 [mysqld]
-port = 3009
+port = 3309
 ```
 # Deploying
 
@@ -49,7 +49,7 @@ Once everything is ready simply run
 
 Then go into the php container and run:
 
-    start.sh
+    chmod +x bin/magento
     bin/magento setup:install \
     --base-url=https://magento.local \
     --db-host=magento_db:3309 \
@@ -64,8 +64,9 @@ Then go into the php container and run:
     --admin-password=admin123 \
     --language=en_US \
     --currency=USD \
-    --timezone=America/Denver \
+    --timezone=America/Chicago \
     --use-rewrites=1
+    start.sh
 
 Replace the above arguments with values that are appropriate for the environment.
 
