@@ -13,6 +13,7 @@ services:
       - SERVER_NAME
       - PHP_SERVER=${COMPOSE_PROJECT_NAME}_php
       - PHP_PORT
+      - WORKDIR
     volumes:
       - ${MAGENTO_VOLUME}:/var/www/html:delegated
     networks:
